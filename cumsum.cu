@@ -16,7 +16,6 @@ int main(){
     a = (int *) malloc(nBytes);
     for(int i = 0; i < N; i++){
         a[i] = rand();
-        printf("%d\n", a[i]);
     }
     b = (int *) malloc(nBytes);
     c = (int *) malloc(nBytes);
@@ -31,6 +30,11 @@ int main(){
     add_vect<<<1, N>>>(dev_a, dev_b, dev_c);
 
     cudaMemcpy(c, dev_c, nBytes, cudaMemcpyDeviceToHost);
+    printf("\n");
+
+    for(int i = 0; i < N; i++){
+        c[i] = rand();
+    }
 
     free(a);
     free(b);
