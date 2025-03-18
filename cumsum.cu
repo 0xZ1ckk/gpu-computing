@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define N 1000
 
 
@@ -14,7 +15,7 @@ int main(){
 
     a = (int *) malloc(nBytes);
     for(int i = 0; i < N; i++){
-        a[i] = i;
+        a[i] = rand();
     }
     b = (int *) malloc(nBytes);
     c = (int *) malloc(nBytes);
