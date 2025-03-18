@@ -19,11 +19,11 @@ int main(){
         printf("%d\n", a[i]);
     }
     printf("-------------\n");
+    b = (int *) malloc(nBytes);
     for(int i = 0; i < N; i++){
         b[i] = rand();
         printf("%d\n", b[i]);
     }
-    b = (int *) malloc(nBytes);
     c = (int *) malloc(nBytes);
 
     cudaMalloc((void**) &dev_a, nBytes);
