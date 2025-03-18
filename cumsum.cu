@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 50
+#define N 10
 
 
 __global__ void add_vect(int *a, int *b, int *c){
