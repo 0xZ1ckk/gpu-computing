@@ -18,6 +18,7 @@ int main(){
         a[i] = rand();
         printf("%d\n", a[i]);
     }
+    printf("-------------\n");
     for(int i = 0; i < N; i++){
         b[i] = rand();
         printf("%d\n", b[i]);
@@ -35,7 +36,7 @@ int main(){
     add_vect<<<1, N>>>(dev_a, dev_b, dev_c);
 
     cudaMemcpy(c, dev_c, nBytes, cudaMemcpyDeviceToHost);
-    printf("\n");
+    printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 
     for(int i = 0; i < N; i++){
         printf("%d\n", c[i]);
