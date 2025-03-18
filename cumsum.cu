@@ -40,5 +40,3 @@ int main(){
     cudaFree(b);
     cudaFree(c);
 }
-
-main()
