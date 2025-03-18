@@ -33,7 +33,7 @@ int main(){
     printf("\n");
 
     for(int i = 0; i < N; i++){
-        c[i] = rand();
+        printf("%d\n", c[i]);
     }
 
     free(a);
