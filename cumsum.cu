@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 1000
+#define N 50
 
 
 __global__ void add_vect(int *a, int *b, int *c){
@@ -16,6 +16,7 @@ int main(){
     a = (int *) malloc(nBytes);
     for(int i = 0; i < N; i++){
         a[i] = rand();
+        printf("%d\n", a[i]);
     }
     b = (int *) malloc(nBytes);
     c = (int *) malloc(nBytes);
