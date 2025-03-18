@@ -32,8 +32,6 @@ int main(){
 
     cudaMemcpy(c, dev_c, nBytes, cudaMemcpyDeviceToHost);
 
-    printf("%d\n", c[3]);
-
     free(a);
     free(b);
     free(c);
