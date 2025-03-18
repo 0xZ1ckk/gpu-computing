@@ -16,6 +16,7 @@ int main(){
     a = (int *) malloc(nBytes);
     for(int i = 0; i < N; i++){
         a[i] = rand();
+        printf("%d\n", a[i]);
     }
     b = (int *) malloc(nBytes);
     c = (int *) malloc(nBytes);
