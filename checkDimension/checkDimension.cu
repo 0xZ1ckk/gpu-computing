@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
   printf("grid.x %d grid.y %d grid.z %d\n", grid.x, grid.y, grid.z);
   printf("block.x %d block.y %d block.z %d\n", block.x, block.y, block.z);
 
-  printf("%x\n", block);
+  printf("TEST ----->> %x\n", block);
 
   checkIndex<<<grid, block>>>();
 
