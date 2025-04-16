@@ -36,7 +36,8 @@ int main(int argc, char **argv) {
   cudaMalloc((float **)&d_A, nBytes);
   cudaMalloc((float **)&d_B, nBytes);
   cudaMalloc((float **)&d_C, nBytes);
-  printf("%x\n", d_A);
+  printf("Address to array in device memory : %x\n", d_A);
+  printf("Address to array in host memory : %x\n", h_A);
 
   cudaMemcpy(d_A, h_A, nBytes, cudaMemcpyHostToDevice);
   cudaMemcpy(d_B, h_B, nBytes, cudaMemcpyHostToDevice);
