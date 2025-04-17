@@ -110,7 +110,7 @@ int main(int argc, char **argv) {
   // invoke kernel at host side
   int iLen = 256;
   dim3 block(iLen);
-  int gridX = (nElem + block.x - 1) / block.x;
+  int gridX = ((nElem/2) + block.x - 1) / block.x;
   dim3 grid(gridX);
   printf("Grid x dimension : %d\n", gridX);
 
