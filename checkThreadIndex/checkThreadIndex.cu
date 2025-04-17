@@ -25,7 +25,7 @@ void printMatrix(int *C, const int nx, const int ny) {
     for (int ix = 0; ix < nx; ix++) {
       printf("%3d", ic[ix]);
     }
-    ic += nx;
+    //ic += nx;
     printf("\n");
   }
   printf("\n");
