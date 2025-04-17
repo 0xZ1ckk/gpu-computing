@@ -49,9 +49,11 @@ void sumArraysOnHost(float *A, float *B, float *C, const int N) {
 }
 __global__ void sumArraysOnGPU(float *A, float *B, float *C, const int N) {
   int i = blockIdx.x * blockDim.x + threadIdx.x;
+  int i2 = (1 << 24)/2;
 
-  if (i < N-1) {
+  if (i < N) {
     C[i] = A[i] + B[i];
+    C[i2] = A[i2] + B[i2];
   }
 }
 
@@ -109,7 +111,7 @@ int main(int argc, char **argv) {
   // invoke kernel at host side
   int iLen = 256;
   dim3 block(iLen);
-  int gridX = (nElem + block.x - 1) / block.x;
+  int gridX = ((nElem/2) + block.x - 1) / block.x;
   dim3 grid(gridX);
   printf("Grid x dimension : %d\n", gridX);
 
