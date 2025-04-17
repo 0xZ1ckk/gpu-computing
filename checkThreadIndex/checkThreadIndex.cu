@@ -66,9 +66,9 @@ int main(int argc, char **argv) {
   // transfer data from host to device
   cudaMemcpy(d_MatA, h_A, nBytes, cudaMemcpyHostToDevice);
   // set up execution configuration
-  dim3 block(2, 4);
+  dim3 block(1023, 4);
   dim3 grid((nx + block.x - 1) / block.x, (ny + block.y - 1) / block.y);
-  printf("Grid x dimension : %d\n", (nx+block.x-1)/block.x);
+  printf("Grid x dimension : %d\n", (nx + block.x - 1) / block.x);
   // invoke the kernel
   printThreadIndex<<<grid, block>>>(d_MatA, nx, ny);
   cudaDeviceSynchronize();
