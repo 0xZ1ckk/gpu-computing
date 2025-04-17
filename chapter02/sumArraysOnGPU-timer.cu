@@ -50,7 +50,7 @@ void sumArraysOnHost(float *A, float *B, float *C, const int N) {
 __global__ void sumArraysOnGPU(float *A, float *B, float *C, const int N) {
   int i = blockIdx.x * blockDim.x + threadIdx.x;
 
-  if (i < N) {
+  if (i < N-1) {
     C[i] = A[i] + B[i];
     C[i + 1] = A[i + 1] + B[i + 1];
   }
