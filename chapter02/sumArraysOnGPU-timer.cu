@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
   CHECK(cudaSetDevice(dev));
 
   // set up data size of vectors
-  int nElem = 1 << 24;
+  int nElem = 1024;
   printf("Vector size %d\n", nElem);
 
   // malloc host memory
@@ -110,7 +110,9 @@ int main(int argc, char **argv) {
   // invoke kernel at host side
   int iLen = 256;
   dim3 block(iLen);
-  dim3 grid((nElem + block.x - 1) / block.x);
+  int gridX = (nElem + block.x - 1) / block.x;
+  dim3 grid(gridX);
+  printf("Grid x dimension : %d\n", gridX);
 
   iStart = seconds();
   sumArraysOnGPU<<<grid, block>>>(d_A, d_B, d_C, nElem);
