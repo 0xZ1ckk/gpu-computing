@@ -52,7 +52,6 @@ __global__ void sumArraysOnGPU(float *A, float *B, float *C, const int N) {
 
   if (i < N-1) {
     C[i] = A[i] + B[i];
-    C[i + 1] = A[i + 1] + B[i + 1];
   }
 }
 
@@ -110,7 +109,7 @@ int main(int argc, char **argv) {
   // invoke kernel at host side
   int iLen = 256;
   dim3 block(iLen);
-  int gridX = ((nElem/2) + block.x - 1) / block.x;
+  int gridX = (nElem + block.x - 1) / block.x;
   dim3 grid(gridX);
   printf("Grid x dimension : %d\n", gridX);
 
