@@ -25,7 +25,7 @@ void printMatrix(int *C, const int nx, const int ny) {
     for (int ix = 0; ix < nx; ix++) {
       printf("%3d", ic[ix]);
     }
-    //ic += nx;
+    ic += nx;
     printf("\n");
   }
   printf("\n");
@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
   // set up execution configuration
   dim3 block(4, 2);
   dim3 grid((nx + block.x - 1) / block.x, (ny + block.y - 1) / block.y);
+  printf("Grid x dimension : %d\n", (nx+block.x-1)/block.x);
   // invoke the kernel
   printThreadIndex<<<grid, block>>>(d_MatA, nx, ny);
   cudaDeviceSynchronize();
