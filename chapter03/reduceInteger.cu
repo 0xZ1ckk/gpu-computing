@@ -37,6 +37,7 @@ __global__ void reduceNeighbored (int *g_idata, int *g_odata, unsigned int n)
 
     // convert global data pointer to the local pointer of this block
     int *idata = g_idata + blockIdx.x * blockDim.x;
+    printf("%x\n", idata);
 
     // boundary check
     if (idx >= n) return;
